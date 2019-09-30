@@ -1,4 +1,4 @@
-﻿/ ННГУ, ВМК, Курс "Методы программирования-2", С++, ООП
+﻿// ННГУ, ВМК, Курс "Методы программирования-2", С++, ООП
 //
 // utmatrix.h - Copyright (c) Гергель В.П. 07.05.2001
 //   Переработано для Microsoft Visual Studio 2008 Сысоевым А.В. (21.04.2015)
@@ -156,27 +156,27 @@ TVector<ValType> TVector<ValType>::operator*(const ValType &val)
 template <class ValType> // сложение
 TVector<ValType> TVector<ValType>::operator+(const TVector<ValType> &v)
 {
-	if !((StartIndex == v.StartIndex) && (Size == v.Size)) throw "not_equal";
+	if (!((StartIndex == v.StartIndex) && (Size == v.Size))) throw "not_equal";
 	TVector temp(*this);
 	for (int i = 0; i < Size; i++)
-		temp.pVector[i] += v.pVector[i];
+		temp.pVector[i] = temp.pVector[i] + v.pVector[i];
 	return temp;
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // вычитание
 TVector<ValType> TVector<ValType>::operator-(const TVector<ValType> &v)
 {
-	if !((StartIndex == v.StartIndex) && (Size == v.Size)) throw "not_equal";
+	if (!((StartIndex == v.StartIndex) && (Size == v.Size))) throw "not_equal";
 	TVector temp(*this);
 	for (int i = 0; i < Size; i++)
-		temp.pVector[i] -= v.pVector[i];
+		temp.pVector[i] = temp.pVector[i] - v.pVector[i];
 	return temp;
 } /*-------------------------------------------------------------------------*/
 
 template <class ValType> // скалярное произведение
 ValType TVector<ValType>::operator*(const TVector<ValType> &v)
 {
-	if !((StartIndex == v.StartIndex) && (Size == v.Size)) throw "not_equal";
+	if (!((StartIndex == v.StartIndex) && (Size == v.Size))) throw "not_equal";
 	ValType res = 0;
 	for (int i = 0; i < Size; i++)
 		res += pVector[i] + v.pVector[i];

@@ -29,3 +29,5 @@
 *.exe
 *.out
 *.app
+/.vs/mp2-lab2-matrix/v15
+/.vs

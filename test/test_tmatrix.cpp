@@ -74,7 +74,7 @@ TEST(TMatrix, can_assign_matrix_to_itself)
 {
 	TMatrix<int> m(9);
 
-	EXPECT_EQ(m, m);
+	ASSERT_NO_THROW(m = m);
 }
 
 TEST(TMatrix, can_assign_matrices_of_equal_size)
@@ -107,14 +107,14 @@ TEST(TMatrix, compare_equal_matrices_return_true)
 {
 	TMatrix<int> m1(9), m2(9);
 
-	EXPECT_EQ(m1 == m2, true);
+	EXPECT_EQ(true, m1 == m2);
 }
 
 TEST(TMatrix, compare_matrix_with_itself_return_true)
 {
 	TMatrix<int> m(9);
 
-	EXPECT_EQ(m == m, true);
+	EXPECT_EQ(true, m == m);
 }
 
 TEST(TMatrix, matrices_with_different_size_are_not_equal)

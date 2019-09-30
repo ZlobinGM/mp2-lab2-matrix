@@ -86,7 +86,7 @@ TEST(TVector, can_assign_vector_to_itself)
 {
 	TVector<int> v(9);
 
-	EXPECT_EQ(v, v);
+	ASSERT_NO_THROW(v = v);
 }
 
 TEST(TVector, can_assign_vectors_of_equal_size)
@@ -119,14 +119,14 @@ TEST(TVector, compare_equal_vectors_return_true)
 {
 	TVector<int> v1(9), v2(9);
 
-	EXPECT_EQ(v1 == v2, true);
+	EXPECT_EQ(v1, v2);
 }
 
 TEST(TVector, compare_vector_with_itself_return_true)
 {
 	TVector<int> v(9);
 
-	EXPECT_EQ(v == v, true);
+	EXPECT_EQ(v, v);
 }
 
 TEST(TVector, vectors_with_different_size_are_not_equal)
@@ -140,7 +140,7 @@ TEST(TVector, can_add_scalar_to_vector)
 {
 	TVector<int> v1(3), v2(3);
 	v1 = v1 + 3;
-	v2[0] = v1[1] = v2[2] = 3;
+	v2[0] = v2[1] = v2[2] = 3;
 
 	EXPECT_EQ(v1, v2);
 }
@@ -149,7 +149,7 @@ TEST(TVector, can_subtract_scalar_from_vector)
 {
 	TVector<int> v1(3), v2(3);
 	v1 = v1 - 3;
-	v2[0] = v1[1] = v2[2] = -3;
+	v2[0] = v2[1] = v2[2] = -3;
 
 	EXPECT_EQ(v1, v2);
 }
@@ -188,7 +188,7 @@ TEST(TVector, can_subtract_vectors_with_equal_size)
 {
 	TVector<int> v1(3), v2(3), v3(3);
 	v1 = v1 + 11;
-	v2 = v1 + 4;
+	v2 = v2 + 4;
 	v3 = v3 + 7;
 
 	EXPECT_EQ(v1 - v2, v3);
@@ -205,10 +205,9 @@ TEST(TVector, can_multiply_vectors_with_equal_size)
 {
 	TVector<int> v1(3), v2(3), v3(3);
 	v1 = v1 + 2;
-	v2 = v1 + 3;
-	v3 = v3 + 6;
+	v2 = v2 + 3;
 
-	EXPECT_EQ(v1 * v2, v3);
+	EXPECT_EQ(3 * 6, v1 * v2);
 }
 
 TEST(TVector, cant_multiply_vectors_with_not_equal_size)

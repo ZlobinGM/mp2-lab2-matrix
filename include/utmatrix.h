@@ -179,7 +179,7 @@ ValType TVector<ValType>::operator*(const TVector<ValType> &v)
 	if (!((StartIndex == v.StartIndex) && (Size == v.Size))) throw "not_equal";
 	ValType res = 0;
 	for (int i = 0; i < Size; i++)
-		res += pVector[i] + v.pVector[i];
+		res += pVector[i] * v.pVector[i];
 	return res;
 } /*-------------------------------------------------------------------------*/
 

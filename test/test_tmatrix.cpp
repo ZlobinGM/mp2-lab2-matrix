@@ -36,9 +36,11 @@ TEST(TMatrix, copied_matrix_is_equal_to_source_one)
 TEST(TMatrix, copied_matrix_has_its_own_memory)
 {
 	TMatrix<int> m(10);
+	m[0][0] = 1;
 	TMatrix<int> copy(m);
+	copy[0][0] = 2;
 
-	EXPECT_NE(&m, &copy);
+	EXPECT_NE(m[0][0], copy[0][0]);
 }
 
 TEST(TMatrix, can_get_size)
